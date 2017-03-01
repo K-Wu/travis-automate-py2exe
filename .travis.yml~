@@ -9,18 +9,18 @@ script:
 - sudo apt-get install scons
 - "./virtual-wine/vwine-setup venv_wine"
 - ". venv_wine/bin/activate"
+- wine msiexec -i python-3.6.0-amd64.exe
 - pwd
 - mkdir python
 - mv python-3.6.0-embed-amd64.zip python/
 - cd python
 - unzip python-3.6.0-embed-amd64.zip
 - cd ..
-- git clone https://www.github.com/pyinstaller/pyinstaller.git
-- wine python/python.exe pyinstaller/pyinstaller.py --onefile src/main.py
+- wine python/python.exe
 deploy:
   provider: releases
   api_key:
     secure: RK1zGaK9vzrTF0c3XpzV4Wjn6mVbDZNcja+HseAHR3R2lTcuS4hArESCnTSb6yKx7CYqfyLjkqf1viq2/ZwLdvvLmO9EDEyluxxS5oydZTSk7XPYQYJiDvtTQVOEQpSvZupCbOI4dzp6vQMafb0WAvB576kfuKJhhTsoCN5payc27XYfDtHA28XDpTcownAxXak5c+0RaG88h2a1jfiuhp2sOCFg+OP6eLzytvvATJw07mcV21dG7bkX2d4mkeaFM2p6J18gjQCXDrn17BFizNWR9shZvt6Fna1iR7doZ7RNY2CuXbSt3i2y3FcW0SqgW3OfPQG96//VACkwywQ5qmeqKVxK7UR1/ai49spVut8i73zuUJRvQ+R9ELygf3hNNHn6OUBxlKX6QPPuQ2rYv1sn5icNp8KDOGQytORaxMAFCzBVVB52GxUkS38dSMO/OaDyD2sjWlh9d0rjOu6MmaLGX9syapNFvPohMA4sKt/SQz6dWtrvbVOtlF+/y9LsU/NBlPs5wJSMk5rXgoR+7+VOVgUpC9mdAjUqFcoHFJu0xVi5ERutoOa0RJ7ej+cC4TE09Jg1FemCdkskLIOcLjxBOHtLYofNaQequBq12FhO62foOaWDjL4Et8mi7YtpVytsUJcjFtfctq+HVLwAIkL0IRDDe//qhitMIQZm680=
-  file: dist/main.exe
+  file: src/dist/main.exe
   on:
     repo: K-Wu/ts18-release-kwu
