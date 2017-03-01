@@ -8,3 +8,5 @@ script:
  - ./virtual-wine/vwine-setup venv_wine
  - . venv_wine/bin/activate
  - wine msiexec -i python-3.6.0-amd64.exe
+ - pwd
+ 
